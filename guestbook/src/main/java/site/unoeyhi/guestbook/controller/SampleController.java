@@ -27,7 +27,7 @@ public class SampleController {
       .first("first"+i)
       .last("last"+i)
       .regTime(LocalDateTime.now())
-    .build()));    
+    .build()));
   }
 @GetMapping("exInline")
   public String exInline(RedirectAttributes rttr) {
@@ -39,7 +39,7 @@ public class SampleController {
     .build();
     rttr.addFlashAttribute("dto", dto);
     rttr.addFlashAttribute("result", "success");
-    return "redirect:ex03"; 
+    return "redirect:ex03";
   }
 
   @GetMapping("ex03")

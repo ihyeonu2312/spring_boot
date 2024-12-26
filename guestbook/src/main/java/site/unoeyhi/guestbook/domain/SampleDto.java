@@ -9,7 +9,7 @@ import lombok.Data;
 @Builder(toBuilder = true)
 public class SampleDto {
   private long sno;
-  private String first;  
+  private String first;
   private String last;
-  private LocalDateTime regTime;  
+  private LocalDateTime regTime;
 }
