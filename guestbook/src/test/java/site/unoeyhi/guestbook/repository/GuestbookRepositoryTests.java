@@ -44,7 +44,7 @@ public class GuestbookRepositoryTests {
   public void testSelectList(){
     repository.findAll().forEach(log::info);
   }
-
+  
   @Test
   public void testSelectOne(){
     log.info(repository.findById(1L));
