@@ -5,7 +5,7 @@ spring:
   application:
     name: club
   datasource:
-    url: jdbc:log4jdbc:mariadb://np.sangwon97.com:3306/security
+    url: jdbc:log4jdbc:mariadb://np.unoeyhi.site:3306/security
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
     username: sample
     password: 1234
