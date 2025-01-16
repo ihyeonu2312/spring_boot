@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.log4j.Log4j2;
 import net.minidev.json.JSONObject;
+import site.unoeyhi.club.security.util.JWTUtil;
 
 @Log4j2
 public class ApiCheckFilter extends OncePerRequestFilter{
@@ -57,11 +58,14 @@ public class ApiCheckFilter extends OncePerRequestFilter{
     boolean result = false;
     String authHeader = request.getHeader("Authorization");
 
-    if(StringUtils.hasText(authHeader)) {
+    if(StringUtils.hasText(authHeader) && authHeader.startsWith("Bearer")) {
       log.info("Authentication exist :: " + authHeader);
-      if(authHeader.equals("12345678")) {
-        result = true;
-      }
+
+      String email = jwtUtil.validateExtract(authHeader.substring(7));
+
+      log.info("valid email :: " + email);
+      result = email.length() > 0;
+
     }
     return result;
    }
