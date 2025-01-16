@@ -65,6 +65,19 @@ dependencies {
 
 	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
 	implementation 'io.jsonwebtoken:jjwt:0.12.6'
+
+	// 리액트와 연결하기위한? swagger
+    // https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
+
+		// https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3
+		implementation 'com.amazonaws:aws-java-sdk-s3:1.12.779'
+		 // AWS SDK for DynamoDB (DynamoDB와 상호작용하기 위한 의존성, 필요시 추가)
+    implementation 'software.amazon.awssdk:dynamodb:2.20.25'  // 최신 버전 확인
+		 // AWS SDK Core (기본 SDK 기능 제공)
+    implementation 'software.amazon.awssdk:core:2.20.25'  // 최신 버전 확인 후 사용
+    // AWS SDK for S3 (S3 서비스 사용 시)
+    implementation 'software.amazon.awssdk:s3:2.20.25'  // 최신 버전 확인 후 사용
 }
 
 	// springboot logger
