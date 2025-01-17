@@ -58,10 +58,27 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
+    public Optional<NoteDto> get(Long num) {
+        long count = likesRepository.count(Example.of(Likes.builder().note(Note.builder().num(num).build()).build()));
+        log.info(count);
+        return repository.findById(num).map(this::toDto).map(d -> { d.setLikesCnt(count); return d; });
+    }
+
+    @Override
+    public List<NoteDto> list(String email) {
+        repository.findNotesBy(email).stream().map(o -> {
+            NoteDto dto = toDto((Note)o[0]);
+            dto.setLikesCnt((Long)o[1]);
+            dto.setAttachCnt((Long)o[2]);
+            return dto;
+        }).toList();
+
+    }
+
+    @Override
     public void remove(Long num) {
-        if (noteRepository.findById(num).isPresent()) {
-            noteRepository.deleteById(num);    
-        }
+        repository.deleteById(num);
+        return 1;
     }
 
     @Override

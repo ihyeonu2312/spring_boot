@@ -48,5 +48,11 @@ public class NoteRepositoryTests {
   @Test
   public void testList2(){
     repository.findByMemberEmail("user100@sangwon97.com").forEach(log::info);
+
+  }
+
+  @Test
+  public void testListJPQL() {
+    repository.findNoteBy("user100@unoeyhi.site").forEach(log::info);
   }
 }
